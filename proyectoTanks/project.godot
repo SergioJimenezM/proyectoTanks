@@ -25,6 +25,10 @@ window/size/width=800
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
 [rendering]
 
 quality/intended_usage/framebuffer_allocation=0
