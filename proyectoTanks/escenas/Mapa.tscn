@@ -1,29 +1,22 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://escenas/Mapa.gd" type="Script" id=1]
+[ext_resource path="res://scripts/Mapa.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 
-[sub_resource type="SegmentShape2D" id=1]
-a = Vector2( -420, 0 )
-b = Vector2( 360, 0 )
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 380, 10 )
 
-[sub_resource type="SegmentShape2D" id=2]
-a = Vector2( 380, 10 )
-b = Vector2( -400, 10 )
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 380, 10 )
 
-[sub_resource type="SegmentShape2D" id=3]
-a = Vector2( -40, 300 )
-b = Vector2( -40, -280 )
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 10, 300 )
 
-[sub_resource type="SegmentShape2D" id=4]
-a = Vector2( 40, -250 )
-b = Vector2( 40, 330 )
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 10, 300 )
 
-[node name="Node2D" type="Area2D"]
+[node name="StaticBody2D" type="StaticBody2D"]
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 399, 304 )
@@ -40,26 +33,29 @@ __meta__ = {
 }
 
 [node name="colisionSuperior" type="CollisionShape2D" parent="."]
-position = Vector2( 430, 10 )
+position = Vector2( 390, 8 )
 shape = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="colisionInferior" type="CollisionShape2D" parent="."]
-position = Vector2( 410, 580 )
+position = Vector2( 400, 590 )
 shape = SubResource( 2 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="colisionDerecha" type="CollisionShape2D" parent="."]
-position = Vector2( 830, 290 )
+position = Vector2( 780, 300 )
 shape = SubResource( 3 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="colisionIzquierda" type="CollisionShape2D" parent="."]
-position = Vector2( -30, 260 )
+position = Vector2( 20, 300 )
 shape = SubResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
