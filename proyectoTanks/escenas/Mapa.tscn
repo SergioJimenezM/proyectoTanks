@@ -26,7 +26,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Position2D" type="Position2D" parent="."]
+[node name="puntoDeSpawn1" type="Position2D" parent="."]
 position = Vector2( 680, 300 )
 __meta__ = {
 "_edit_lock_": true
@@ -56,6 +56,12 @@ __meta__ = {
 [node name="colisionIzquierda" type="CollisionShape2D" parent="."]
 position = Vector2( 20, 300 )
 shape = SubResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="puntoDeSpawn2" type="Position2D" parent="."]
+position = Vector2( 80, 300 )
 __meta__ = {
 "_edit_lock_": true
 }
