@@ -14,9 +14,9 @@ func get_input():
 	if(Input.is_action_pressed("ui_left")):
 		rotationDir -= 1
 	if(Input.is_action_pressed("ui_down")):
-		velocity = Vector2(0, -speed).rotated(rotation)
-	if(Input.is_action_pressed("ui_up")):
 		velocity = Vector2(0, speed).rotated(rotation)
+	if(Input.is_action_pressed("ui_up")):
+		velocity = Vector2(0, -speed).rotated(rotation)
 	if(Input.is_action_pressed("ui_cancel")):
 		pass
 
