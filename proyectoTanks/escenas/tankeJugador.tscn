@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 55.0525, 83.3725 )
 
-[node name="KinematicBody2D" type="KinematicBody2D"]
+[node name="jugador" type="KinematicBody2D"]
 scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 1 )
 __meta__ = {
@@ -25,3 +25,6 @@ shape = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 0.142848, -119.928 )
