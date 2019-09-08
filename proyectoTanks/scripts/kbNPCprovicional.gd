@@ -18,6 +18,10 @@ func atacar():
 	
 	pass
 
+func recibeDamages():
+	print("DAÑOOOOO")
+	pass
+
 func _physics_process(delta):
 	
 	pass

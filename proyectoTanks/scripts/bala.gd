@@ -11,5 +11,7 @@ func inicio(pos, dir):
 func _physics_process(delta):
 	var collision = move_and_collide(velocity*delta)
 	if collision:
+		if collision.collider.has_method("recibeDamages"):
+			collision.collider.recibeDamages()
 		queue_free()
 	pass
