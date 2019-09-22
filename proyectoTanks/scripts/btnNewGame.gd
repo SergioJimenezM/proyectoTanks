@@ -1,4 +1,5 @@
 extends Button
 
 func _pressed():
-	get_tree().change_scene("res://escenas/Mapa.tscn")
+	#get_tree().change_scene("res://escenas/Mapa.tscn")
+	pass

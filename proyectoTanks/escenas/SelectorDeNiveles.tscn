@@ -1,0 +1,32 @@
+[gd_scene format=2]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ItemList" type="ItemList" parent="."]
+margin_left = 210.0
+margin_top = 10.0
+margin_right = 790.0
+margin_bottom = 590.0
+
+[node name="btnCreateMap" type="Button" parent="."]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 187.0
+margin_bottom = 46.0
+text = "Crear Mapa"
+
+[node name="btnEditorMap" type="Button" parent="."]
+margin_left = 20.0
+margin_top = 500.0
+margin_right = 187.0
+margin_bottom = 530.0
+text = "Editar mapa"
+
+[node name="btnReturn" type="Button" parent="."]
+margin_left = 20.0
+margin_top = 550.0
+margin_right = 187.0
+margin_bottom = 580.0
+text = "Volver al menu principal"
