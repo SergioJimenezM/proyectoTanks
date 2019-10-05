@@ -6,6 +6,7 @@ var mapa#almacenara la instancia del mapa para editarlo
 var spriteActual = 0 #por defecto coloca un sprite
 export var minSprite = 0
 export var maxSprite = 2
+#Se puede optimizar esto buscando las direcciones del recurso directamente?
 var nombresSprites = ["res://sprites/hierba.png","res://sprites/tierra.png","res://sprites/ladrillos.png"]
 func _ready():
 	mapa = $mapa
