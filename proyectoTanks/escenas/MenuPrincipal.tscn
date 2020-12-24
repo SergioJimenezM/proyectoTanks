@@ -34,6 +34,9 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Nueva partida"
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="btnMultiplayer" type="Button" parent="."]
 margin_left = 320.0
