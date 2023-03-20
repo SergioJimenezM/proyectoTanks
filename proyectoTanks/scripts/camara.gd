@@ -1,11 +1,11 @@
 extends Camera2D
 
-export var velocidadDeLaCamara = 15
+@export var velocidadDeLaCamara = 15
 
-export var limiteInferior = 560
-export var limiteSuperior = -560
-export var limiteDerecho = 830
-export var limiteIzquierdo = -830
+@export var limiteInferior = 560
+@export var limiteSuperior = -560
+@export var limiteDerecho = 830
+@export var limiteIzquierdo = -830
 
 func _ready():
 	pass

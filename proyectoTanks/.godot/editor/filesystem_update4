@@ -1,0 +1,5 @@
+res://default_env.tres
+res://escenas/Mapa.tscn
+res://escenas/SelectorDeNiveles.tscn
+res://scripts/regresarAlMenuPrincipal.gd
+res://escenas/EditorDeMapas.tscn

@@ -1,7 +1,6 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
 var speed = 750
-var velocity = Vector2()
 
 func inicio(pos, dir):
 	rotation = dir

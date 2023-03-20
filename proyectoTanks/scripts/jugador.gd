@@ -1,7 +1,7 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
-export (int) var speed = 200
-export (float) var rotationSpeed = 1.5
+@export (int) var speed = 200
+@export (float) var rotationSpeed = 1.5
 
 var velocity = Vector2()
 var rotationDir = 0
@@ -24,11 +24,13 @@ func get_input():
 		shot()
 
 func shot():
-	var nuevaBala = bala.instance()
-	nuevaBala.inicio($Position2D.global_position, self.rotation)
+	var nuevaBala = bala.instantiate()
+	nuevaBala.inicio($Marker2D.global_position, self.rotation)
 	get_parent().add_child(nuevaBala)
 
 func _physics_process(delta):
 	get_input()
 	rotation += rotationDir * rotationSpeed * delta
-	velocity = move_and_slide(velocity)
+	set_velocity(velocity)
+	move_and_slide()
+	velocity = velocity

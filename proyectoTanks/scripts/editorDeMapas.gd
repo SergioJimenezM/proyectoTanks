@@ -7,7 +7,7 @@ extends Node2D
 #de anubarak para quien lo necesite
 #licencia MIT :D
 
-export var spriteMaximo = 2
+@export var spriteMaximo = 2
 
 var loDeLosTiles
 var cosaDeCamara
@@ -22,7 +22,7 @@ var listaDeSprites = ["res://sprites/hierba.png",
 func _ready():
 	loDeLosTiles = get_node("loDeLosTiles")
 	cosaDeCamara = get_node("camara")
-	$camara/botonera/Sprite.texture = load(listaDeSprites[spriteActual])
+	$camara/botonera/Sprite2D.texture = load(listaDeSprites[spriteActual])
 	$camara/botonera/ListaDeSprites.add_icon_item(load(listaDeSprites[0]), true)
 	$camara/botonera/ListaDeSprites.add_icon_item(load(listaDeSprites[1]), true)
 	$camara/botonera/ListaDeSprites.add_icon_item(load(listaDeSprites[2]), true)
@@ -34,34 +34,34 @@ func _unhandled_input(event):
 		return
 		
 	if(event is InputEventMouseButton and event.is_pressed()):
-		if(event.button_index == BUTTON_WHEEL_UP or event.button_index == BUTTON_WHEEL_DOWN):
+		if(event.button_index == MOUSE_BUTTON_WHEEL_UP or event.button_index == MOUSE_BUTTON_WHEEL_DOWN):
 			if(spriteActual == 2):
 				spriteActual = 0
 			else:
 				spriteActual += 1
-			$camara/botonera/Sprite.texture = load(listaDeSprites[spriteActual])
-		if(event.button_index == BUTTON_LEFT and event.pressed):
+			$camara/botonera/Sprite2D.texture = load(listaDeSprites[spriteActual])
+		if(event.button_index == MOUSE_BUTTON_LEFT and event.pressed):
 			#en caso de presionar el boton izquierdo
-			var tilePos = loDeLosTiles.world_to_map(get_global_mouse_position())
+			var tilePos = loDeLosTiles.local_to_map(get_global_mouse_position())
 			#toma un vector(x,y) y lo traduce en coordenadas de malla
 			loDeLosTiles.set_cellv(tilePos, spriteActual)
 			#cambia la celda de la posicion por el sprite(0:yerba 1:ladrillo 2:tierra)
-		if(event.button_index == BUTTON_RIGHT and event.pressed):
+		if(event.button_index == MOUSE_BUTTON_RIGHT and event.pressed):
 			#igual pero con el boton contrario
-			var tilePos = loDeLosTiles.world_to_map(get_global_mouse_position())
+			var tilePos = loDeLosTiles.local_to_map(get_global_mouse_position())
 			#exactamente lo mismo, pero la posicion cambiará
 			loDeLosTiles.set_cellv(tilePos, -1)
 			#un -1 va a eliminar el sprite en ese sitio de la malla
 
 func presionadoGuardar():
 	dialogo = FileDialog.new()
-	dialogo.set_mode(dialogo.MODE_SAVE_FILE)
+	dialogo.set_mode(dialogo.FILE_MODE_SAVE_FILE)
 	dialogo.set_access(dialogo.ACCESS_USERDATA)
-	dialogo.set_filters(PoolStringArray(["*.save"]))
+	dialogo.set_filters(PackedStringArray(["*.save"]))
 	dialogo.set_current_dir("user://")
 	$camara.add_child(dialogo)
 	dialogo.popup_centered_clamped($camara.position)
-	dialogo.connect("file_selected", self,"guardar")
+	dialogo.connect("file_selected",Callable(self,"guardar"))
 	if typeof(directorioAbierto) != typeof(0):
 		dialogo.set_current_path(directorioAbierto)
 
@@ -75,13 +75,13 @@ func guardar(path):
 	
 func presionadoCargar():
 	dialogo = FileDialog.new()
-	dialogo.set_mode(dialogo.MODE_OPEN_FILE)
+	dialogo.set_mode(dialogo.FILE_MODE_OPEN_FILE)
 	dialogo.set_access(dialogo.ACCESS_USERDATA)
-	dialogo.set_filters(PoolStringArray(["*.save"]))
+	dialogo.set_filters(PackedStringArray(["*.save"]))
 	dialogo.set_current_dir("user://")
 	$camara.add_child(dialogo)
 	dialogo.popup_centered_clamped($camara.position)
-	dialogo.connect("file_selected", self,"cargar")
+	dialogo.connect("file_selected",Callable(self,"cargar"))
 	if typeof(directorioAbierto) != typeof(0):
 		dialogo.set_current_path(directorioAbierto)
 
@@ -101,5 +101,5 @@ func salir():
 
 func _on_ListaDeSprites_item_selected(index):
 	spriteActual = index
-	$camara/botonera/Sprite.texture = load(listaDeSprites[index])
+	$camara/botonera/Sprite2D.texture = load(listaDeSprites[index])
 	pass # Replace with function body.

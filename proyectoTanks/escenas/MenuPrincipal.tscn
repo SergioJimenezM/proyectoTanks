@@ -1,72 +1,80 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://b1srsk8qoxu38"]
 
-[ext_resource path="res://scripts/btnNewGame.gd" type="Script" id=1]
-[ext_resource path="res://scripts/btnExit.gd" type="Script" id=2]
+[ext_resource type="Script" path="res://scripts/btnNewGame.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/btnExit.gd" id="2"]
 
 [node name="GUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="lblMainTitle" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -60.0
+offset_top = 112.0
+offset_right = 54.0
+offset_bottom = 138.0
+grow_horizontal = 2
+scale = Vector2(1.5, 1.5)
+size_flags_horizontal = 4
+text = "proyectoTanks"
+
+[node name="btnNewGame" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -70.0
-margin_top = -230.0
-margin_right = 22.0
-margin_bottom = -216.0
-rect_scale = Vector2( 1.5, 1.5 )
-size_flags_horizontal = 4
-text = "proyectoTanks"
-align = 1
-
-[node name="btnNewGame" type="Button" parent="."]
-margin_left = 320.0
-margin_top = 170.0
-margin_right = 426.0
-margin_bottom = 190.0
-rect_scale = Vector2( 1.5, 1.5 )
+offset_left = -60.0
+offset_top = -160.0
+offset_right = 59.0
+offset_bottom = -129.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Nueva partida"
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+script = ExtResource("1")
+metadata/_edit_group_ = true
 
 [node name="btnMultiplayer" type="Button" parent="."]
-margin_left = 320.0
-margin_top = 260.0
-margin_right = 426.0
-margin_bottom = 280.0
-rect_scale = Vector2( 1.5, 1.5 )
+layout_mode = 0
+offset_left = 488.0
+offset_top = 280.0
+offset_right = 596.0
+offset_bottom = 311.0
+scale = Vector2(1.5, 1.5)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 disabled = true
 text = "Multijugador"
 
 [node name="btnOptions" type="Button" parent="."]
-margin_left = 320.0
-margin_top = 350.0
-margin_right = 426.0
-margin_bottom = 370.0
-rect_scale = Vector2( 1.5, 1.5 )
+layout_mode = 0
+offset_left = 488.0
+offset_top = 360.0
+offset_right = 594.0
+offset_bottom = 391.0
+scale = Vector2(1.5, 1.5)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 disabled = true
 text = "Opciones"
 
 [node name="btnExit" type="Button" parent="."]
-margin_left = 360.0
-margin_top = 440.0
-margin_right = 413.0
-margin_bottom = 460.0
-rect_scale = Vector2( 1.5, 1.5 )
+layout_mode = 0
+offset_left = 528.0
+offset_top = 456.0
+offset_right = 581.0
+offset_bottom = 487.0
+scale = Vector2(1.5, 1.5)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Salir"
-script = ExtResource( 2 )
+script = ExtResource("2")
