@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://20i505kb6231"]
 
-[ext_resource type="Script" path="res://scripts/jugador.gd" id="1"]
+[ext_resource type="Script" uid="uid://iwnmlt6qgs7x" path="res://scripts/jugador.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://cj37il7obokai" path="res://sprites/tankeEstructuraAmarilla.png" id="2"]
 
 [sub_resource type="RectangleShape2D" id="1"]
@@ -9,9 +9,6 @@ size = Vector2(55.0525, 83.3725)
 [node name="jugador" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1")
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2")
@@ -21,4 +18,4 @@ position = Vector2(1.52588e-05, -0.435333)
 shape = SubResource("1")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(0.142848, -119.928)
+position = Vector2(0, -96)

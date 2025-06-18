@@ -1,27 +1,27 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=5 format=3 uid="uid://dmp2dlqyje0ak"]
 
-[ext_resource path="res://sprites/hierba.png" type="Texture2D" id=1]
-[ext_resource path="res://sprites/tierra.png" type="Texture2D" id=2]
-[ext_resource path="res://sprites/ladrillos.png" type="Texture2D" id=3]
+[ext_resource type="Texture2D" uid="uid://ins63dnsxntf" path="res://sprites/hierba.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://l3aaab6uiw66" path="res://sprites/tierra.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://y80pp1apycof" path="res://sprites/ladrillos.png" id="3"]
 
-[sub_resource type="RectangleShape2D" id=1]
-size = Vector2( 32.1177, 31.938 )
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(32.1177, 31.938)
 
 [node name="Node2D" type="Node2D"]
 
 [node name="hierba" type="Sprite2D" parent="."]
-position = Vector2( 120, 40 )
-texture = ExtResource( 1 )
+position = Vector2(120, 40)
+texture = ExtResource("1")
 
 [node name="tierra" type="Sprite2D" parent="."]
-position = Vector2( 40, 40 )
-texture = ExtResource( 2 )
+position = Vector2(40, 40)
+texture = ExtResource("2")
 
 [node name="ladrillos" type="Sprite2D" parent="."]
-position = Vector2( 200, 40 )
-texture = ExtResource( 3 )
+position = Vector2(200, 40)
+texture = ExtResource("3")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="ladrillos"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ladrillos/StaticBody2D"]
-shape = SubResource( 1 )
+shape = SubResource("1")

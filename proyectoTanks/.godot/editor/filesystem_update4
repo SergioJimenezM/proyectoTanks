@@ -1,5 +1,10 @@
-res://default_env.tres
-res://escenas/Mapa.tscn
-res://escenas/SelectorDeNiveles.tscn
-res://scripts/regresarAlMenuPrincipal.gd
+res://escenas/bala.tscn
 res://escenas/EditorDeMapas.tscn
+res://escenas/Mapa.tscn
+res://escenas/MenuPrincipal.tscn
+res://escenas/SelectorDeNiveles.tscn
+res://escenas/tankeJugador.tscn
+res://Tiles/EscenaDeLosTiles.tscn
+res://default_env.tres
+res://scripts/bala.gd
+res://scripts/jugador.gd

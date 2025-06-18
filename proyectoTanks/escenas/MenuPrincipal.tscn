@@ -1,13 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://b1srsk8qoxu38"]
 
-[ext_resource type="Script" path="res://scripts/btnNewGame.gd" id="1"]
-[ext_resource type="Script" path="res://scripts/btnExit.gd" id="2"]
+[ext_resource type="Script" uid="uid://dvhoqoepmvo8h" path="res://scripts/btnNewGame.gd" id="1"]
+[ext_resource type="Script" uid="uid://c3wbrftc23dh0" path="res://scripts/btnExit.gd" id="2"]
 
 [node name="GUI" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="lblMainTitle" type="Label" parent="."]
 layout_mode = 1

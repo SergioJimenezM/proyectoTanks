@@ -40,5 +40,4 @@ func _process(delta):
 		
 	if(posicion.y >= limiteDerecho):
 		posicion.y -= velocidadDeLaCamara
-	print(posicion)
 	position = posicion

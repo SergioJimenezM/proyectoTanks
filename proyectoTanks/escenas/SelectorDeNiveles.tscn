@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c7txt3cwem2u6"]
 
-[ext_resource type="Script" path="res://scripts/btnCreateMap.gd" id="1"]
-[ext_resource type="Script" path="res://scripts/regresarAlMenuPrincipal.gd" id="2_ykun8"]
+[ext_resource type="Script" uid="uid://d33b6anf6smly" path="res://scripts/btnCreateMap.gd" id="1"]
+[ext_resource type="Script" uid="uid://dy2dmks8ritr7" path="res://scripts/regresarAlMenuPrincipal.gd" id="2_ykun8"]
 
 [node name="Control" type="Control"]
 layout_mode = 3

@@ -44,13 +44,15 @@ func _unhandled_input(event):
 			#en caso de presionar el boton izquierdo
 			var tilePos = loDeLosTiles.local_to_map(get_global_mouse_position())
 			#toma un vector(x,y) y lo traduce en coordenadas de malla
-			loDeLosTiles.set_cellv(tilePos, spriteActual)
+			print(tilePos)
+			print(spriteActual)
+			cambiar_tile(tilePos, spriteActual, tilePos.x, tilePos.y, loDeLosTiles)
 			#cambia la celda de la posicion por el sprite(0:yerba 1:ladrillo 2:tierra)
 		if(event.button_index == MOUSE_BUTTON_RIGHT and event.pressed):
 			#igual pero con el boton contrario
 			var tilePos = loDeLosTiles.local_to_map(get_global_mouse_position())
 			#exactamente lo mismo, pero la posicion cambiará
-			loDeLosTiles.set_cellv(tilePos, -1)
+			loDeLosTiles.set_cell(tilePos, -1)
 			#un -1 va a eliminar el sprite en ese sitio de la malla
 
 func presionadoGuardar():
@@ -65,16 +67,25 @@ func presionadoGuardar():
 	if typeof(directorioAbierto) != typeof(0):
 		dialogo.set_current_path(directorioAbierto)
 
+func cambiar_tile(tileset_index, new_tile_index, x, y, tilemap):
+	# Obtenemos el tileset del TileMap
+	var tileset = tilemap.tileset
+	# Cambiamos el índice del nuevo tile en el tileset
+	tileset.tile_get_tileset(tileset_index).set_tile(new_tile_index)
+	# Obtenemos el ID del tile en la posición x, y del TileMap
+	var tile_id = tilemap.get_cell(x, y)
+	# Cambiamos el índice del tile a la nueva posición en la lista del tileset
+	tilemap.set_cell(x, y, tileset.find_tile_by_name(tileset.tile_get_tileset(tileset_index).get_name(), new_tile_index))
+
 func guardar(path):
 	dialogo = 0
 	directorioAbierto = path
-	var archivador = File.new()
-	archivador.open(path, File.WRITE)
+	var archivador = FileAccess.open("user://Tanks.save", FileAccess.WRITE)
 	archivador.store_var(loDeLosTiles, true)
 	archivador.close()
 	
 func presionadoCargar():
-	dialogo = FileDialog.new()
+	dialogo = FileAccess.open("user://Tanks.save", FileAccess.READ)
 	dialogo.set_mode(dialogo.FILE_MODE_OPEN_FILE)
 	dialogo.set_access(dialogo.ACCESS_USERDATA)
 	dialogo.set_filters(PackedStringArray(["*.save"]))
@@ -88,8 +99,7 @@ func presionadoCargar():
 func cargar(path):
 	dialogo = 0
 	directorioAbierto = path
-	var desarchivar = File.new()
-	desarchivar.open(path, File.READ)
+	var desarchivar = FileAccess.open("user://Tanks.save", FileAccess.READ)
 	loDeLosTiles.queue_free()
 	loDeLosTiles = desarchivar.get_var(true);
 	desarchivar.close()

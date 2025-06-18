@@ -1,9 +1,8 @@
 extends CharacterBody2D
 
-@export (int) var speed = 200
-@export (float) var rotationSpeed = 1.5
+var speed = 200
+var rotationSpeed = 1.5
 
-var velocity = Vector2()
 var rotationDir = 0
 var bala = load("res://escenas/bala.tscn")
 
@@ -25,8 +24,9 @@ func get_input():
 
 func shot():
 	var nuevaBala = bala.instantiate()
-	nuevaBala.inicio($Marker2D.global_position, self.rotation)
-	get_parent().add_child(nuevaBala)
+	$Marker2D.add_child(nuevaBala) # Se añade a la escena principal
+	nuevaBala.direction = -transform.y.normalized() # O define el vector de dirección
+	
 
 func _physics_process(delta):
 	get_input()

@@ -1,16 +1,26 @@
-extends CharacterBody2D
+extends Node2D
 
-var speed = 750
-
-func inicio(pos, dir):
-	rotation = dir
-	position = pos
-	velocity = Vector2(0, -speed).rotated(rotation)
+@export var speed := 2000.0
+@export var damage := 10
+var direction := Vector2.UP
 
 func _physics_process(delta):
-	var collision = move_and_collide(velocity*delta)
-	if collision:
-		if collision.collider.has_method("recibeDamages"):
-			collision.collider.recibeDamages()
+	var from = global_position
+	var to = from + direction * speed * delta
+
+	var params := PhysicsRayQueryParameters2D.new()
+	params.from = from
+	params.to = to
+	params.exclude = [self]
+	params.collision_mask = 1  # Ajusta según tus capas
+
+	var space_state = get_world_2d().direct_space_state
+	var result := space_state.intersect_ray(params)
+
+	if result:
+		var collider = result.collider
+		if collider and collider.has_method("take_damage"):
+			collider.take_damage(damage)
 		queue_free()
-	pass
+	else:
+		global_position = to
